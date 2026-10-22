@@ -1,0 +1,20 @@
+{
+  "name": "steelrunweb",
+  "version": "1.0.0",
+  "description": "O website da empresa Steel Run (CR)",
+  "license": "MIT",
+  "author": "Steel Run LTD.",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "dev": "nodemon main.js",
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

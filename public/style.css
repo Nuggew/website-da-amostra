@@ -1,0 +1,218 @@
+/* CLASSES E ELEMENTOS QUE PODEM SER REUTILIZADOS ESTÃO AQUI */
+/* (Esse código tá uma bagunda ;P) */
+
+/* Remove o padding e a margem do body e faz ele ficar limitado a 100vw de largura, além de definir uma fonte padrão melhor, definir um background-color e remover a possibilidade de scrollar horizontalmente */
+body{
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    overflow-x: hidden;
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    background: #55686e;
+    /*background: linear-gradient(90deg,rgb(109, 73, 73) 0%, rgb(67, 72, 112) 100%);*/
+}
+
+/* Configurações básicas e universais do Header */
+header{
+    padding-left: 25px;
+    font-weight: bolder;
+}
+
+/* Configurações básicas e universais de todo parágrafo */
+p{ text-indent: 20px; }
+
+/* Configura todas as sections do site para possuírem titulos h2 e parágrafos padronizados, com uma largura total, além de um background que pode receber uma imagem se necessário de forma eficaz */
+section{
+    width: 100vw;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    h2{
+        color: white;
+        font-weight: bolder;
+    }
+    p{
+        font-weight: bold;
+        text-indent: 20px;
+    }
+}
+
+/* Botões estilizados, com tamanho padronizado, texto na esquerda, bold e 200% de tamanho em cor preta, background branco e cursor de ponteiro tipo click */
+.button{
+    cursor: pointer;
+    width: 200px;
+    height: 45px;
+    text-align: left;
+    font-size: 200%;
+    font-weight: bold;
+    padding-left: 5px;
+    background-color: white;
+    color: black;
+}
+
+/* Botão de preço, diferentemente do anterior, esse não possui tamanho padrão e tem fonte pixelada */
+.pricebutton{
+    cursor: pointer;
+    height: 45px;
+    text-align: left;
+    font-size: 200%;
+    font-weight: bold;
+    padding-left: 10px;
+    background-color: white;
+    color: black;
+
+    font-family: 'Press Start 2P', monospace;
+}
+.pricebutton:hover{ color: white; background-color: black; } /* Efeito do Botão de preço ao passar o cursor por cima */
+
+/* Títulos padronizados em todas as páginas com fonte pixelada */
+.title { font-family: 'Press Start 2P', monospace; }
+
+/* Inputs padronizados no formulário de contato da página inicial */
+input{
+    background: rgb(228, 228, 228);
+    width: 25vw;
+    height: 30px;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+/* Área de texto também do formulário da página inicial */
+textarea{
+    background: rgb(228, 228, 228);
+    width: 25vw;
+    border-radius: 4px;
+    padding: 5px;
+    min-height: 100px;
+}
+
+/* Labels dos inputs do formulário lá da página inicial também */
+label{
+    font-size: larger;
+}
+
+/* Botão de envio do mesmo formulário da página inicial */
+button{
+    cursor: pointer;
+    border-width: 2px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 4px;
+    font-weight: bolder;
+}
+button:hover{ background: rgb(228, 228, 228); } /* Efeito do botão de envio ao passar o mouse por cima */
+
+/* Efeito de glowing (brilho) que pode ser aplicado em qualquer texto */
+.glow{
+    text-shadow: 0 0 15px #fff, 0 0 25px #fff, 0 0 30px #fff;
+}
+
+/* Seção de preços do website (presente na página "/precos" (precos.html)) */
+#price-main{
+    /* Painel que contém um preço com seus detalhes. Possui tamanho, background, borda, outline, display, direção de flex, sombreamento etc. padronizados */
+    section{
+        min-width: 350px;
+        max-width: 350px;
+        height: 450px;
+        padding: 15px;
+        background-color: whitesmoke;
+        outline-width: 1px;
+        outline-style: solid;
+        outline-color: grey;
+        border-radius: 15px;
+
+        display: flex;
+        flex-direction: column;
+
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+
+        /* Título do painel */
+        h1{
+            display: flex;
+            flex-direction: row;
+
+            color: rgba(0, 0, 0, .8);
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        /* Título dos detalhes incluidos */
+        h3{
+            font-weight: bolder;
+        }
+
+        /* Lista dos detalhes incluidos */
+        .included{
+            list-style: circle;
+            padding-left: 25px;
+            font-weight: 600;
+        }
+
+        /* Informações importantes */
+        .info{
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+
+            /* Preço do painel */
+            .price{
+                font-size: xx-large;
+                font-weight: bolder;
+            }
+
+            /* Letrinhas miudas que ninguém lê mas são extremamente importantes e podem fazer alguém entrar em falência se não forem lidas corretamente */
+            .small-letter{
+                font-size: small;
+                font-weight: 100;
+            }
+        }
+    }
+}
+
+/* Painel/malha/lista de contribuidores/integrantes */
+.contributors-main{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 180px);
+    width: 100%;
+    gap: 15px;
+
+    /* Contribuidor/Integrante (possui tamanho, padding, background, outline e mais várias coisas padronizadas) */
+    section{
+        min-width: 180px;
+        max-width: 180px;
+        min-height: 160px;
+        padding: 5px;
+        background-color: whitesmoke;
+        outline-width: 1px;
+        outline-style: solid;
+        outline-color: grey;
+        border-radius: 15px;
+
+        display: flex;
+        flex-direction: column;
+
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+
+        /* Foto do contribuidor/integrante */
+        img, .personal-icon{
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-radius: 15px;
+
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Nome do contribuidor/integrante */
+        h1{
+            color: rgba(0, 0, 0, .8);
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+    }
+}
