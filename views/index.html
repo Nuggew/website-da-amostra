@@ -103,22 +103,26 @@
     <section id="contact" class="flex justify-end pt-10 pl-25 pr-25 pb-10">
         <!-- Painel -->
         <div class="grow h-full flex items-center justify-center">
-            <form id="contact-form" class="flex flex-col gap-1"> <!-- Formulário de Contato -->
-                <label for="name">Nome completo</label>
+            <form id="contact-form" class="flex flex-col gap-1" action="javascript:;" onsubmit="contactSend(this)"> <!-- Formulário de Contato -->
+                <label for="name">Nome completo*</label>
                 <input type="text" id="name" placeholder="ex. Samuel Medeiros Neto">
 
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="example123@email.com">
+                <!--<label for="email">Email*</label>
+                <input type="email" id="email" placeholder="example123@email.com">-->
 
-                <label for="meetupdate">Data para reunião</label>
+                <label for="meetupdate">Data para reunião*</label>
                 <input type="date" id="meetupdate">
 
-                <label for="message">Mensagem complementar</label>
-                <textarea id="message" placeholder="..."></textarea>
+                <label for="message">Assunto</label>
+                <input type="text" id="subject">
+
+                <label for="messageopt">Mensagem complementar</label>
+                <textarea id="messageopt" placeholder="..."></textarea>
 
                 <button>Enviar »</button>
             </form>
         </div>
+        <span id="errorMsg" class="text-red-100 font-bold glow"></span> <!-- Texto de erro -->
 
         <!-- Título Vertical -->
         <div class="flex mr-5">
@@ -132,17 +136,30 @@
         <span>Steel Run Enterprise (C) 2026</span>
     </footer>
 
+    <script src="/scripts/form-backend.js"></script>
     <script>
         $(document).ready(function () {
-            const today = new Date();
-            var maxDate = new Date();
-            maxDate.setFullYear(today.getFullYear() + 2);
-            maxDate.setMonth(today.getMonth());
-            maxDate.setDate(today.getDate());
-
-            $("#meetupdate").attr("min", today.toISOString().split('T')[0]);
-            $("#meetupdate").attr("max", maxDate.toISOString().split('T')[0]);
+            $("#meetupdate").attr("min", new Date().toISOString().split('T')[0]);
+            $("#meetupdate").attr("max", generateMaxDate().toISOString().split('T')[0]);
         });
+
+        function contactSend(form){
+            var reason = "";
+            reason += validateName(form.name.value) ? "" : "Nome completo, ";
+            reason += validateDate(form.meetupdate.value) ? "" : "Data para reunião, ";
+            //reason += validateEmail(form.email.value) ? "" : "Email";
+
+            if (reason != ""){
+                document.getElementById("errorMsg").innerText = "Não foi possível finalizar o envio, verifique os dados: " + reason;
+                return;
+            }
+
+            document.getElementById("errorMsg").innerText = "";
+            location.href = "mailto:"
+                + "steelrun.enterprise.contato@gmail.com"
+                + `?subject=${form.subject.value}`
+                + `&body=${form.messageopt.value + (form.messageopt.value != "" ? "%0D%0A%0D%0A" : "")}Data de Reunião: ${form.meetupdate.value}%0D%0AAss. ${form.name.value}`;
+        }
     </script>
 </body>
 </html>
