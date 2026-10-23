@@ -103,26 +103,28 @@
     <section id="contact" class="flex justify-end pt-10 pl-25 pr-25 pb-10">
         <!-- Painel -->
         <div class="grow h-full flex items-center justify-center">
-            <form id="contact-form" class="flex flex-col gap-1" action="javascript:;" onsubmit="contactSend(this)"> <!-- Formulário de Contato -->
-                <label for="name">Nome completo*</label>
-                <input type="text" id="name" placeholder="ex. Samuel Medeiros Neto">
+            <div class="flex flex-col w-[100vw] justify-center items-center">
+                <form id="contact-form" class="flex flex-col gap-1" action="javascript:;" onsubmit="contactSend(this)"> <!-- Formulário de Contato -->
+                    <label for="name">Nome completo*</label>
+                    <input type="text" id="name" placeholder="ex. Samuel Medeiros Neto">
 
-                <!--<label for="email">Email*</label>
-                <input type="email" id="email" placeholder="example123@email.com">-->
+                    <!--<label for="email">Email*</label>
+                    <input type="email" id="email" placeholder="example123@email.com">-->
 
-                <label for="meetupdate">Data para reunião*</label>
-                <input type="date" id="meetupdate">
+                    <label for="meetupdate">Data para reunião*</label>
+                    <input type="date" id="meetupdate">
 
-                <label for="message">Assunto</label>
-                <input type="text" id="subject">
+                    <label for="message">Assunto</label>
+                    <input type="text" id="subject">
 
-                <label for="messageopt">Mensagem complementar</label>
-                <textarea id="messageopt" placeholder="..."></textarea>
+                    <label for="messageopt">Mensagem complementar</label>
+                    <textarea id="messageopt" placeholder="..."></textarea>
 
-                <button>Enviar »</button>
-            </form>
+                    <button>Enviar »</button>
+                </form>
+                <span id="errorMsg" class="text-red-100 font-bold glow"></span> <!-- Texto de erro -->
+            </div>
         </div>
-        <span id="errorMsg" class="text-red-100 font-bold glow"></span> <!-- Texto de erro -->
 
         <!-- Título Vertical -->
         <div class="flex mr-5">
